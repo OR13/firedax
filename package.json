@@ -10,6 +10,7 @@
   "license": "MIT",
   "dependencies": {
     "chai": "^3.5.0",
+    "firebase-tools": "^3.0.6",
     "mocha": "^3.0.0"
   }
 }

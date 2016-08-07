@@ -5,4 +5,5 @@ var firedax = {
     hello: require('./src/hello/hello'),
 };
 
+
 module.exports = firedax;

@@ -1,0 +1,15 @@
+{
+  "name": "firedax",
+  "version": "1.0.0",
+  "description": "A node library for synching GDAX Realtime Order Book with Firebase.",
+  "main": "firedax.js",
+  "scripts": {
+    "test": "mocha --recursive src "
+  },
+  "author": "orie@or13.io",
+  "license": "MIT",
+  "dependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.0.0"
+  }
+}

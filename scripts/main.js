@@ -3,7 +3,7 @@
 
 setTimeout(function () {
 
-    var ipfs = window.IpfsApi();
+    var ipfs = window.IpfsApi('127.0.0.1', '5001')
 
     console.log('hello world!', ipfs)
 
@@ -23,4 +23,4 @@ setTimeout(function () {
             console.log('Fail: ', err)
         })
 
-}, 1 * 500);
+}, 1 * 1000);

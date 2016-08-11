@@ -5,10 +5,10 @@
   "main": "firedax.js",
   "scripts": {
     "test": "mocha --recursive src ",
-    "gen-docs": "rm -rf docs; jsdoc --configure .jsdoc.json --verbose",
-    "serve-docs": "http-server docs",
-    "deploy-docs": "gulp deploy",
-    "debug-docs": "rm -rf docs; jsdoc --configure .jsdoc.json --verbose; ipfs daemon & http-server docs;"
+    "docs-gen": "rm -rf docs; jsdoc --configure .jsdoc.json --verbose",
+    "docs-serve": "http-server docs",
+    "docs-deploy": "gulp deploy",
+    "docs-debug": "rm -rf docs; jsdoc --configure .jsdoc.json --verbose; ipfs daemon & http-server docs;"
   },
   "author": "orie@or13.io",
   "homepage": "https://github.com/OR13/firedax",

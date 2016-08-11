@@ -23,7 +23,7 @@ var promptIpfsSetup = function () {
 }
 
 function img_create(src, alt, title) {
-    var img= IEWIN? new Image() : document.createElement('img');
+    var img = new Image();
     img.src= src;
     if (alt!=null) img.alt= alt;
     if (title!=null) img.title= title;

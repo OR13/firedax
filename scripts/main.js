@@ -22,6 +22,18 @@ var promptIpfsSetup = function () {
     }
 }
 
+var getImage = function () {
+
+    window.ipfs.cat('QmRcm8yiCYmQ1jDxhUVtsjvps4XjtjSTziVSdQsszuiRfw')
+        .then(function (cat) {
+            console.log('cat: ', cat.url)
+            document.getElementById('test-image').setAttribute('src', cat.url);
+        })
+        .catch(function (err) {
+            console.log('Fail: ', err)
+        })
+}
+
 setTimeout(function () {
 
     var ipfs = connectToIpfsGateway('127.0.0.1', '5001')

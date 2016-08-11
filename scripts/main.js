@@ -24,9 +24,9 @@ var promptIpfsSetup = function () {
 
 function img_create(src, alt, title) {
     var img = new Image();
-    img.src= src;
-    if (alt!=null) img.alt= alt;
-    if (title!=null) img.title= title;
+    img.src = src;
+    if (alt != null) img.alt = alt;
+    if (title != null) img.title = title;
     return img;
 }
 
@@ -35,7 +35,20 @@ window.getImage = function () {
     window.ipfs.cat('QmRcm8yiCYmQ1jDxhUVtsjvps4XjtjSTziVSdQsszuiRfw')
         .then(function (cat) {
             console.log('cat: ', cat.url)
-            document.getElementById('test-image').appendChild(img_create(cat.url, 'ipfs-image', 'ipfs-image'));
+
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", cat.url);
+            xhr.responseType = "blob";//force the HTTP response, response-type header to be blob
+            xhr.onload = function () {
+                var blob = xhr.response;
+                var reader = new FileReader();
+                reader.addEventListener("loadend", function () {
+                    console.log(reader.result);
+                    document.getElementById("test-image").innerHTML = reader.result;
+                });
+                reader.readAsText(blob);
+            }
+            xhr.send();
         })
         .catch(function (err) {
             console.log('Fail: ', err)

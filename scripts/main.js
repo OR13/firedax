@@ -22,12 +22,20 @@ var promptIpfsSetup = function () {
     }
 }
 
-var getImage = function () {
+function img_create(src, alt, title) {
+    var img= IEWIN? new Image() : document.createElement('img');
+    img.src= src;
+    if (alt!=null) img.alt= alt;
+    if (title!=null) img.title= title;
+    return img;
+}
+
+window.getImage = function () {
 
     window.ipfs.cat('QmRcm8yiCYmQ1jDxhUVtsjvps4XjtjSTziVSdQsszuiRfw')
         .then(function (cat) {
             console.log('cat: ', cat.url)
-            document.getElementById('test-image').setAttribute('src', cat.url);
+            document.getElementById('test-image').appendChild(img_create(cat.url, 'ipfs-image', 'ipfs-image'));
         })
         .catch(function (err) {
             console.log('Fail: ', err)
@@ -41,6 +49,8 @@ setTimeout(function () {
     ipfs.id()
         .then(function (id) {
             console.log('my id is: ', id)
+
+            window.getImage();
         })
         .catch(function (err) {
             console.log('Fail: ', err)

@@ -1,3 +1,3 @@
 [submodule "FireDocs"]
 	path = FireDocs
-	url = git@github.com:OR13/FireDocs.git
+	url = https://github.com/OR13/FireDocs.git

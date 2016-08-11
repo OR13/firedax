@@ -35,20 +35,7 @@ window.getImage = function () {
     window.ipfs.cat('QmRcm8yiCYmQ1jDxhUVtsjvps4XjtjSTziVSdQsszuiRfw')
         .then(function (cat) {
             console.log('cat: ', cat.url)
-
-            var xhr = new XMLHttpRequest();
-            xhr.open("GET", cat.url);
-            xhr.responseType = "blob";//force the HTTP response, response-type header to be blob
-            xhr.onload = function () {
-                var blob = xhr.response;
-                var reader = new FileReader();
-                reader.addEventListener("loadend", function () {
-                    // console.log(reader.result);
-                    document.getElementById("test-image").innerHTML += reader.result;
-                });
-                reader.readAsText(blob);
-            }
-            xhr.send();
+            document.getElementById("test-image").innerHTML += '<img style="width: 75%; padding-left: 30px;" src="' + cat.url + '">';
         })
         .catch(function (err) {
             console.log('Fail: ', err)

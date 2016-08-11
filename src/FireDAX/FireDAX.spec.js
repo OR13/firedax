@@ -5,20 +5,24 @@ var assert = require('chai').assert;
 
 var firebase = require('firebase');
 
-describe('let fd = new firedax.FireDAX(4, 2)', function () {
+describe('let fd = new firedax.FireDAX()', function () {
 
     var fd;
 
     before(function () {
-        fd = new firedax.FireDAX(4, 2);
+        fd = new firedax.FireDAX();
     });
 
-    it('fd.getX() should be 4', function () {
-        assert.equal(fd.getX(), 4);
+    it('should define fd.OrderBook', function () {
+        assert.isObject(fd.OrderBook);
     });
 
-    it('fd.getY() should be 2', function () {
-        assert.equal(fd.getY(), 2);
+    it('should define fd.config.firebase', function () {
+        assert.isObject(fd.config.firebase);
+    });
+
+    it('should define fd.ipfs', function () {
+        assert.isObject(fd.ipfs);
     });
 
     after(function () {

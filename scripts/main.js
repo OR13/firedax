@@ -35,14 +35,7 @@ window.getImage = function () {
     window.ipfs.cat('QmRcm8yiCYmQ1jDxhUVtsjvps4XjtjSTziVSdQsszuiRfw')
         .then(function (cat) {
             console.log('cat: ', cat.url)
-
-            var xhr = new XMLHttpRequest();
-            xhr.open("GET", cat.url);
-            xhr.responseType = "text/plain";//force the HTTP response, response-type header to be blob
-            xhr.onload = function () {
-                 document.getElementById("test-image").innerHTML += xhr.response;
-            }
-            xhr.send();
+            document.getElementById("test-image").innerHTML += '<img src="' + cat.url + '">';
         })
         .catch(function (err) {
             console.log('Fail: ', err)

@@ -38,15 +38,9 @@ window.getImage = function () {
 
             var xhr = new XMLHttpRequest();
             xhr.open("GET", cat.url);
-            xhr.responseType = "blob";//force the HTTP response, response-type header to be blob
+            xhr.responseType = "text/plain";//force the HTTP response, response-type header to be blob
             xhr.onload = function () {
-                var blob = xhr.response;
-                var reader = new FileReader();
-                reader.addEventListener("loadend", function () {
-                    // console.log(reader.result);
-                    document.getElementById("test-image").innerHTML += reader.result;
-                });
-                reader.readAsText(blob);
+                 document.getElementById("test-image").innerHTML += xhr.response;
             }
             xhr.send();
         })

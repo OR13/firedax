@@ -1,12 +1,21 @@
 {
   "name": "firedax",
   "version": "1.0.0",
-  "description": "A node library for synching GDAX Realtime Order Book with Firebase.",
+  "description": "Firebase GDAX and IPFS.",
   "main": "firedax.js",
   "scripts": {
-    "test": "mocha --recursive src "
+    "test": "mocha --recursive src ",
+    "gen-docs": "rm -rf docs; jsdoc --configure .jsdoc.json --verbose",
+    "serve-docs": "http-server docs",
+    "deploy-docs": "gulp deploy",
+    "debug-docs": "rm -rf docs; jsdoc --configure .jsdoc.json --verbose; ipfs daemon & http-server docs;"
   },
   "author": "orie@or13.io",
+  "homepage": "https://github.com/OR13/firedax",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OR13/firedax"
+  },
   "license": "MIT",
   "dependencies": {
     "bluebird": "^3.4.1",
@@ -14,6 +23,11 @@
     "firebase": "^3.2.1",
     "firebase-tools": "^3.0.6",
     "gdax": "^0.2.1",
+    "gulp": "^3.9.1",
+    "gulp-gh-pages": "^0.5.4",
+    "http-server": "^0.9.0",
+    "ipfs-api": "^6.0.3",
+    "jsdoc": "^3.4.0",
     "mocha": "^3.0.0"
   }
 }

@@ -1,26 +1,25 @@
 
-var firedax = require('../../firedax');
-
+var firedax = require('../../../firedax');
 var assert = require('chai').assert;
+var firebase = require('firebase');
 
-describe('firedax.orderbook()', function () {
+describe('fd.OrderBook', function () {
 
+    var fd;
     before(function () {
-
+        fd = new firedax.FireDAX();
     });
 
     it('should return a realtime order book which is synched with gdax.', function (done) {
 
         this.timeout(10 * 1000);
 
-        var orderbookSync = firedax.orderbook();
-
-        var book = orderbookSync.book.state();
+        var book = fd.OrderBook.book.state();
         var count = 0;
 
         setInterval(function () {
             count += 1;
-            book = orderbookSync.book.state();
+            book = fd.OrderBook.book.state();
 
             console.log('\t after ', count, ' seconds, ', book.asks.length, ' asks, ', book.bids.length, ' bids.');
 
@@ -33,7 +32,9 @@ describe('firedax.orderbook()', function () {
     });
 
     after(function () {
-
+        firebase.app().delete().then(function () {
+            // console.log("[DEFAULT] App is Gone Now");
+        });
     });
 
 });

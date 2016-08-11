@@ -35,7 +35,7 @@ window.getImage = function () {
     window.ipfs.cat('QmRcm8yiCYmQ1jDxhUVtsjvps4XjtjSTziVSdQsszuiRfw')
         .then(function (cat) {
             console.log('cat: ', cat.url)
-            document.getElementById("test-image").innerHTML += '<img src="' + cat.url + '">';
+            document.getElementById("test-image").innerHTML += '<img style="width: 75%; padding-left: 30px;" src="' + cat.url + '">';
         })
         .catch(function (err) {
             console.log('Fail: ', err)

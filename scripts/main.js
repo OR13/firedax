@@ -43,8 +43,8 @@ window.getImage = function () {
                 var blob = xhr.response;
                 var reader = new FileReader();
                 reader.addEventListener("loadend", function () {
-                    console.log(reader.result);
-                    document.getElementById("test-image").innerHTML = reader.result;
+                    // console.log(reader.result);
+                    document.getElementById("test-image").innerHTML += reader.result;
                 });
                 reader.readAsText(blob);
             }

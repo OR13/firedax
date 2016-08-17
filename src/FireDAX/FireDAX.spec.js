@@ -21,10 +21,6 @@ describe('let fd = new firedax.FireDAX()', function () {
         assert.isObject(fd.config.firebase);
     });
 
-    it('should define fd.ipfs', function () {
-        assert.isObject(fd.ipfs);
-    });
-
     after(function () {
         firebase.app().delete().then(function () {
             // console.log("[DEFAULT] App is Gone Now");

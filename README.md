@@ -1,6 +1,6 @@
 # FireDAX
 
-###### Firebase GDAX and IPFS.
+###### Firebase GDAX.
 
 - [Demo](https://firedax.com)
 - [Docs](http://docs.firedax.com)

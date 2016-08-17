@@ -1,12 +1,11 @@
 "use strict";
 /**
- * Firebase GDAX and IPFS
+ * Firebase GDAX
  * @module firedax
  */
 
 var firebase = require('firebase');
 var Gdax = require('gdax');
-var ipfsAPI = require('ipfs-api');
 
 /** Class representing the FireDAX. */
 class FireDAX {
@@ -16,26 +15,8 @@ class FireDAX {
      */
     constructor() {
 
-        this.initializeIPFS();
         this.initializeFirebase();
-
         this.OrderBook = new Gdax.OrderbookSync();
-    }
-
-    /**
-    * Connect to IPFS
-    * {@link https://github.com/ipfs/js-ipfs-api IPFS JS API}.
-    */
-    initializeIPFS() {
-
-        this.ipfs = ipfsAPI('/ip4/127.0.0.1/tcp/5001')
-
-        // // connect to ipfs daemon API server
-        // var ipfs = ipfsAPI('localhost', '5001', { protocol: 'http' }) // leaving out the arguments will default to these values
-
-        // // or using options
-        // var ipfs = ipfsAPI({ host: 'localhost', port: '5001', procotol: 'http' })
-
     }
 
     /**
